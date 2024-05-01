@@ -1,13 +1,13 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; // Import Ionicons from Expo icons
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.leftContainer}>
+        {/* Task Bar */}
         <View style={styles.taskBar}>
           <TouchableOpacity style={styles.menuButton}>
             <Ionicons name="menu" size={24} color="black" />
@@ -19,16 +19,34 @@ export default function App() {
           </View>
         </View>
         <View style={styles.divider}></View>
+
+  {/* Tabs */}
         <View style={styles.tabsContainer}>
           <TouchableOpacity style={[styles.tab, styles.activeTab]}>
             <Text style={styles.tabText}>Active</Text>
             <View style={styles.activeIndicator}></View>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.tab, styles.inactiveTab]}>
+          <TouchableOpacity  style={[styles.tab, styles.inactiveTab]}>
             <Text style={styles.tabText}>Upcoming</Text>
           </TouchableOpacity>
         </View>
         <Text style={styles.inTheKitchenText}>In the kitchen</Text>
+        <View style={styles.containerRow}>
+    {/* First container */}
+          <View style={styles.itemContainer}>
+            {/* Content of the first container */}
+          </View>
+
+          {/* Second container */}
+          <View style={styles.itemContainer}>
+            {/* Content of the second container */}
+          </View>
+
+          {/* Third container */}
+          <View style={styles.itemContainer}>
+            {/* Content of the third container */}
+          </View>
+        </View>
 
       </View>
       <View style={styles.rightContainer}></View>
@@ -40,14 +58,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row', // Arrange containers horizontally
+    flexDirection: 'row',
   },
   leftContainer: {
-    flex: 2, // Cover 2/5 of the screen
+    flex: 2,
     backgroundColor: 'lightgrey',
   },
   rightContainer: {
-    flex: 3, // Cover the rest of the screen
+    flex: 3,
     backgroundColor: 'white',
   },
   taskBar: {
@@ -56,7 +74,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 25, // Increased height of task bar
     paddingHorizontal: 10,
-    backgroundColor: '#f0efed',
+    backgroundColor: 'white',
     borderBottomWidth: 1,
     borderBottomColor: 'lightgrey',
   },
@@ -65,19 +83,19 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   title: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginLeft: -210,
-    marginTop: 10,
+    marginLeft: -230,
+    marginTop: 10, // Move the title closer to the menu button
   },
   acceptingButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 5, // Move the button down a little
+    marginTop: 10, // Move the button down a little
     backgroundColor: 'white', // Set background color to white
-    paddingVertical: 10, // Add vertical padding
+    paddingVertical: 5, // Add vertical padding
     paddingHorizontal: 10, // Add horizontal padding
-    borderRadius: 20, 
+    borderRadius: 20, // Round the corners
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -119,6 +137,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     paddingBottom: 10, // Add more space between active tab and bottom underline
   },
+  inactiveTab: {
+    paddingBottom: 10, // Add more space between active tab and bottom underline
+  },
   activeIndicator: {
     height: 2,
     backgroundColor: 'blue',
@@ -127,27 +148,27 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  inactiveTab: {
-    paddingBottom: 10, // Add more space between inactive tab and bottom underline
-  },
   inTheKitchenText: {
-    marginLeft: 10,
+    marginLeft: 15,
     marginBottom: 5,
+    marginTop: 15,
     fontSize: 16,
-    color: 'grey',
+    color: '#191919',
   },
   containerRow: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
     paddingHorizontal: 10,
+    backgroundColor: 'white',
   },
-  container: {
-    width: '30%', // Adjust as needed
-    backgroundColor: 'lightgrey',
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 10,
-  },
+  itemContainer: {
+  width: '60%', // Adjust as needed
+  backgroundColor: 'white',
+  padding: 10,
+  borderRadius: 5,
+  marginBottom: 10,
+  }
+  
   
   
 });
